@@ -1,0 +1,25 @@
+NOTES on acmeproxy
+--------------------------------
+
+
+TESTING
+--------------------------------
+
+* Generating a new TSIG key:
+
+    - The default is hmac-sha256, no need to specify it.
+    - Example TSIG key generation:
+
+    $ tsig-keygen test1.test.com.
+    key "test1.test.com." {
+        algorithm hmac-sha256;
+        secret "1PzKm3oK4h/z9CXDx5S0mdbUG03VJ46mKg9U4VbeVcE=";
+    };
+
+* Calling the nsu script:
+
+    - You need to generate a tsig key file as specified above.
+    - You MUST specify NSUPDATE_ZONE, the acmeproxy cannot handle non UPDATE requests.
+
+    $ env NSUPDATE_KEYFILE=./tsigfile1 NSUPDATE_ZONE=test.com ./nsu.sh test1.test.com 1234
+

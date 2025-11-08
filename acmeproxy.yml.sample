@@ -1,0 +1,27 @@
+# acmeproxy configuration file
+#
+# zones: Zones and their route53 IAM user/secret
+# clients: Clients which can make use of AcmeProxy
+#
+
+zones:
+  public.domain:
+    credentials:
+      access_key: E4H_ID
+      secret_key: e4hsecret
+  test.com:
+    credentials:
+      access_key: TCOM_ID
+      secret_key: tcomsecret
+
+clients:
+  my.public.domain:
+    secret: 9QzyvK0W4xo0tLjcRo2MRToDVkGhjGjjCaPC1mAXfuQ=
+    domains:
+      - algo.test.com
+  my.test.com:
+    secret: K9vYUtYo2gSfBq3pfFi+pev9fzI5/etvvhCuuery+8s=
+    domains:
+      - public.domain
+      - www.public.domain
+
